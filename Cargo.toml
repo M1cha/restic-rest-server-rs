@@ -1,8 +1,11 @@
 [package]
 name = "restic-rest-server"
+description = "rust version of restics rest-server"
 version = "0.1.0"
 authors = ["Michael Zimmermann <sigmaepsilon92@gmail.com>"]
 edition = "2018"
+repository = "https://github.com/M1cha/restic-rest-server-rs"
+license = "MIT"
 
 [dependencies]
 actix-files = "0.4"
