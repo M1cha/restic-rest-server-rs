@@ -382,6 +382,7 @@ async fn main() -> std::io::Result<()> {
     builder
         .set_private_key_file(tls_key, SslFiletype::PEM)
         .unwrap();
+    builder.set_certificate_chain_file(tls_cert).unwrap();
 
     if let Some(tls_ca) = tls_ca {
         builder.set_ca_file(tls_ca).unwrap();
@@ -391,8 +392,6 @@ async fn main() -> std::io::Result<()> {
         verify_mode.set(SslVerifyMode::FAIL_IF_NO_PEER_CERT, true);
         builder.set_verify(verify_mode);
     }
-
-    builder.set_certificate_chain_file(tls_cert).unwrap();
 
     HttpServer::new(move || {
         App::new()
